@@ -19,7 +19,7 @@ let inTranslation = false;
 const storage = new Storage();
 const worker = new Worker(vttToUrlUseWorker());
 
-export default function() {
+export default function () {
     // Player instance
     const [player, setPlayer] = useState(null);
 
@@ -38,8 +38,8 @@ export default function() {
 
     // All options
     const [options, setOptions] = useState({
-        videoUrl: '/sample.mp4',
-        subtitleUrl: '/sample.vtt',
+        videoUrl: 'sample.mp4',
+        subtitleUrl: 'sample.vtt',
         helpDialog: false,
         donateDialog: false,
         uploadDialog: false,

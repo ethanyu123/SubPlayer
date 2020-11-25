@@ -155,7 +155,7 @@ export default function (props) {
             </Left>
             <Right>
                 <a className="aimu" href="https://online.aimu-app.com">
-                    <img src="/aimu.png" alt="爱幕" width={15} />
+                    <img src="aimu.png" alt="爱幕" width={15} />
                     全新版本的字幕编辑器《爱幕》来了，点击马上体验
                 </a>
                 <I18n>
