@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { names, getName } from '../i18n';
 import Upload from './Upload';
 import Help from './Help';
 import Donate from './Donate';
@@ -25,32 +24,6 @@ const Left = styled.div`
     height: 100%;
 `;
 
-const Right = styled.div`
-    display: flex;
-    align-items: center;
-    height: 100%;
-
-    .aimu {
-        display: flex;
-        align-items: center;
-        color: #FFEB3B;
-        padding-right: 30px;
-        font-size: 14px;
-        text-decoration: none;
-        animation: animation 3s infinite;
-
-        img {
-            margin-right: 10px;
-        }
-
-        @keyframes animation {
-            50% {
-                color: #00bcd4;
-            }
-        }
-    }
-`;
-
 const Logo = styled.a`
     display: flex;
     align-items: center;
@@ -64,7 +37,10 @@ const Logo = styled.a`
     border-right: 1px solid rgb(0, 0, 0);
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
     text-decoration: none;
-
+    & img {
+        height: 25px;
+        width: 25px;
+    }
     &:hover {
         background-color: #2196f3;
     }
@@ -92,32 +68,13 @@ const Menu = styled.div`
     }
 `;
 
-const I18n = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    height: 100%;
-    padding: 0 10px;
-    color: rgba(255, 255, 255, 1);
-    border-left: 1px solid rgb(0, 0, 0);
-    background-color: rgb(26, 83, 109);
-
-    i {
-        margin-right: 5px;
-    }
-
-    select {
-        outline: none;
-    }
-`;
-
 export default function (props) {
     return (
         <Header>
             <Left>
                 <Logo href="/">
-                    <i className="icon-cc"></i>
+                    {/* <i className="icon-cc"></i> */}
+                    <img src='favicon.ico' alt='logo' />
                 </Logo>
                 <Menu onClick={() => props.setOption({ uploadDialog: true })}>
                     <i className="icon-upload"></i>
@@ -145,30 +102,7 @@ export default function (props) {
                     <i className="icon-help-circled"></i>
                     <Translate value="help" />
                 </Menu>
-                <Menu onClick={() => props.setOption({ donateDialog: true })}>
-                    <i className="icon-money"></i>
-                    <Translate value="donate" />
-                </Menu>
-                <Menu onClick={() => window.open('https://github.com/zhw2590582/SubPlayer')}>
-                    <i className="icon-github"></i> Github
-                </Menu>
             </Left>
-            <Right>
-                <a className="aimu" href="https://online.aimu-app.com">
-                    <img src="aimu.png" alt="爱幕" width={15} />
-                    全新版本的字幕编辑器《爱幕》来了，点击马上体验
-                </a>
-                <I18n>
-                    <i className="icon-language"></i>
-                    <select value={getName(props.language)} onChange={(event) => props.updateLang(event.target.value)}>
-                        {Object.keys(names).map((key) => (
-                            <option key={key} value={key}>
-                                {names[key]}
-                            </option>
-                        ))}
-                    </select>
-                </I18n>
-            </Right>
             {props.options.uploadDialog ? (
                 <Dialog title={t('open')} onClose={() => props.setOption({ uploadDialog: false })}>
                     <Upload {...props} />

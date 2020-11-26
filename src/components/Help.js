@@ -12,25 +12,11 @@ const Help = styled.div`
     }
 `;
 
-export default function() {
+export default function () {
     return (
         <Help>
             <p>
                 <Translate value="help-info" />
-            </p>
-            <p>
-                <Translate value="help-issue" />
-            </p>
-            <p>
-                <a href="https://github.com/zhw2590582/SubPlayer/issues">
-                    https://github.com/zhw2590582/SubPlayer/issues
-                </a>
-            </p>
-            <p>
-                <Translate value="help-email" />
-            </p>
-            <p>
-                <a href="mailto:laozhaochaguan@gmail.com">laozhaochaguan@gmail.com</a>
             </p>
         </Help>
     );
